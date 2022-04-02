@@ -805,5 +805,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 5655695458335918887, guid: 70b53b1d9f4d256449111c6cd7b4389d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70b53b1d9f4d256449111c6cd7b4389d, type: 3}
