@@ -1,18 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Scripts.Utilities;
+using TMPro;
 using UnityEngine;
 
 public class HudManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] GameEvent onPause;
+    
+    [Header("Health")]
+    [SerializeField] float maxBPM;
+    [SerializeField] TextMeshProUGUI healthText;
+    [SerializeField] AnimationCurve healthToBPM;
+    public void OnPause()
     {
-        
+        onPause.Invoke();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnHealthUpdate(OnHealthUpdateArgs onHealthUpdateArgs)
     {
-        
+        float bpm = Mathf.RoundToInt(healthToBPM.Evaluate(onHealthUpdateArgs.value) * maxBPM);
+        healthText.text = $"{bpm} BPM";
     }
 }

@@ -1,6 +1,4 @@
 using Pixelplacement;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -9,17 +7,13 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
+        stateMachine = GetComponent<StateMachine>();
         stateMachine.ChangeState("MainMenu");
     }
 
     public void OnPlay()
     {
         stateMachine.ChangeState("Hud");
-    }
-
-    public void OnQuit()
-    {
-        Application.Quit();
     }
 
     public void OnPause()
@@ -42,8 +36,13 @@ public class UIManager : MonoBehaviour
         stateMachine.ChangeState("GameOverMenu");
     }
 
-    public void OnCreditsShow()
+    public void OnMainMenu()
     {
-        stateMachine.ChangeState("CreditsMenu");
+        stateMachine.ChangeState("MainMenu");
+    }
+
+    public void OnQuit()
+    {
+        Application.Quit();
     }
 }
