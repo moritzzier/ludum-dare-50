@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Assets.Scripts.Utilities
@@ -6,8 +7,26 @@ namespace Assets.Scripts.Utilities
     public interface GameEventArgs
     { }
 
-    public class StaminaEventArgs : GameEventArgs
+    public class OnHealthUpdateArgs : GameEventArgs
     {
+        /// <summary>
+        /// The Health of the patient in percent.
+        /// 0.0f to 1.0f
+        /// </summary>
         public float value;
+    }
+
+    public class OnGameOverArgs : GameEventArgs
+    {
+        /// <summary>
+        /// The Final Score.
+        /// The Time the player survived.
+        /// The Number of correct Items.
+        /// The Number of wrong Items.
+        /// </summary>
+        public float score;
+        public TimeSpan timeSurvived;
+        public int correctItems;
+        public int wrongItems;
     }
 }
