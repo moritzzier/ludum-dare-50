@@ -1,45 +1,59 @@
 using Pixelplacement;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+    public bool IsDragged;
+    public ItemType Type;
+
     StateMachine stateMachine;
     Rigidbody2D rb;
+    new PolygonCollider2D collider;
 
     public enum ItemType
     {
+        OxygenTank,
         Syringe,
-        Blood,
-        Bandage,
+        Bloodbag,
+        BandAid,
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(transform.position, 1);
     }
 
     private void Awake()
     {
         stateMachine = GetComponent<StateMachine>();
         rb = GetComponent<Rigidbody2D>();
+        collider = GetComponent<PolygonCollider2D>();
+
     }
 
-    public void SetItem(ItemType type)
+    private void OnEnable()
     {
-        stateMachine.ChangeState(type.ToString());
+        Type = typeof(ItemType).GetRandomType();
+        stateMachine.ChangeState(Type.ToString());
+        collider.SetPolygonColliderToSpriteBounds();
+        if (rb != null) rb.AddTorque(10f);
     }
 
     public void StartDrag()
     {
-        stateMachine.ChangeState("Blood");
+        IsDragged = true;
     }
 
     public void Drag(Vector3 position)
     {
-        Vector2 directionToMouse = position - this.transform.position;
-
-        rb.AddForce(directionToMouse * 10);
+        rb.MovePosition(position);
+        rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0f;
     }
 
     public void EndDrag()
     {
-        stateMachine.ChangeState("Syringe");
+        IsDragged = false;
     }
 }
