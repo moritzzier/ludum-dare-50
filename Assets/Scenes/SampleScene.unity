@@ -603,6 +603,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d50aea913008f1479f122f77f6cc7df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnDelay: 0.5
+  _spawnDelay: 0.1
   itemPrefab: {fileID: 4012816576473058223, guid: 3d18a278a959ebe4987168f2a24b5c35, type: 3}
   spawnCollider: {fileID: 1956691148}

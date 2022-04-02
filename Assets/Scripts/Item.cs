@@ -53,6 +53,7 @@ public class Item : MonoBehaviour
 
         _dragPlane.Raycast(camRay, out var planeDistance);
         _dragOffset = transform.position - camRay.GetPoint(planeDistance);
+        _rectTransform.pivot = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
     }
 
     void OnMouseDrag()
@@ -63,37 +64,10 @@ public class Item : MonoBehaviour
 
         _rb.MovePosition(camRay.GetPoint(planeDistance) + _dragOffset);
         _rb.velocity = Vector2.zero;
-
-        //_rectTransform.pivot = Input.mousePosition;
-        DebugDraw.DrawSphere(_rectTransform.pivot, 1f, Color.red);
-        //_rb.angularVelocity = 0f;
-
-        //transform.position = ;
     }
 
     private void OnMouseUp()
     {
         IsDragged = false;
     }
-
-    //public void StartDrag(Vector3 offset, Plane plane)
-    //{
-    //    _dragPlane = plane;
-    //    _dragOffset = offset;
-    //    IsDragged = true;
-    //}
-
-    //public void Drag(Vector3 position)
-    //{
-    //    Ray camRay = _mainCamera.ScreenPointToRay(Input.mousePosition);
-    //    _dragPlane.Raycast(camRay, out var planeDistance);
-
-    //    _rb.MovePosition((Vector2)(camRay.GetPoint(planeDistance) + _dragOffset));
-    //    
-    //}
-
-    //public void EndDrag()
-    //{
-    //    IsDragged = false;
-    //}
 }
