@@ -1,10 +1,15 @@
+using Assets.Scripts.Utils;
 using System;
 using UnityEngine;
 
 public class ItemSpawner : MonoBehaviour
 {
-    float _spawnRate = 1f;
+    float _spawnDelay = 1f;
     float _timer = 0;
+    float _currentItems;
+
+    [SerializeField] GameObject itemPrefab;
+    [SerializeField] Collider2D spawnCollider;
     void Start()
     {
         
@@ -14,7 +19,7 @@ public class ItemSpawner : MonoBehaviour
     void Update()
     {
         _timer += Time.deltaTime;
-        if (_timer >= _spawnRate)
+        if (_timer >= _spawnDelay)
         {
             _timer = 0;
             SpawnItem();
@@ -27,7 +32,9 @@ public class ItemSpawner : MonoBehaviour
         var values = Enum.GetValues(typeof (Item.ItemType));
         Item.ItemType randomType = (Item.ItemType)values.GetValue(UnityEngine.Random.Range(0, values.Length));
 
-        GameObject item = Instantiate(Resources.Load("Prefabs/Item"), transform.position, Quaternion.identity) as GameObject;
+        Vector3 spawnPoint = Utilities.RandomPointInBounds(spawnCollider.bounds);
+
+        GameObject item = Instantiate(itemPrefab, spawnPoint, Quaternion.identity);
         item.GetComponent<Item>().SetItem(randomType);
     }
 }
