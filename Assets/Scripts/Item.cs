@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+    public bool IsDragged;
+    public ItemType Type;
+
     StateMachine stateMachine;
     Rigidbody2D rb;
-    PolygonCollider2D collider;
-    PolygonCollider2D childCollider;
-
-    public bool IsDragged;
+    new PolygonCollider2D collider;
 
     public enum ItemType
     {
@@ -34,9 +34,8 @@ public class Item : MonoBehaviour
 
     private void OnEnable()
     {
-        string state = typeof(ItemType).GetRandomType().ToString();
-        Debug.Log(state);
-        stateMachine.ChangeState(state);
+        Type = typeof(ItemType).GetRandomType();
+        stateMachine.ChangeState(Type.ToString());
         collider.SetPolygonColliderToSpriteBounds();
         if (rb != null) rb.AddTorque(10f);
     }
@@ -50,6 +49,7 @@ public class Item : MonoBehaviour
     {
         rb.MovePosition(position);
         rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0f;
     }
 
     public void EndDrag()
