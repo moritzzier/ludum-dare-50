@@ -52,6 +52,7 @@ MonoBehaviour:
   onHealthUpdate: {fileID: 11400000, guid: b690fd0017415854a86ebb2ea50c078d, type: 2}
   onGameOver: {fileID: 11400000, guid: c81ebd231b4759348ae37edb0246dff7, type: 2}
   onSpawnRateUpdate: {fileID: 11400000, guid: 4cd44b4895dc15c47913554b2f5613a2, type: 2}
+  onRequiredItemChanged: {fileID: 11400000, guid: c041457af74aae041be07f2e52ca8d2a, type: 2}
   _gamePause: 1
   _requiredItemType: 0
   _playerHealth: 0

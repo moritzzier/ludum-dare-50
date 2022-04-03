@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using UnityEngine;
 
 namespace Assets.Scripts.Utilities
 {
@@ -45,12 +43,20 @@ namespace Assets.Scripts.Utilities
         /// </summary>
         public Item.ItemType type;
     }
-    
+
     public class OnSpawnRateUpdateArgs : GameEventArgs
     {
         /// <summary>
         /// The new spawn rate.
         /// </summary>
         public float newSpawnRate;
+    }
+
+    public class OnRequiredItemChangedArgs : GameEventArgs
+    {
+        /// <summary>
+        /// The new required item.
+        /// </summary>
+        public Item.ItemType type;
     }
 }

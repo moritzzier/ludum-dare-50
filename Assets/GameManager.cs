@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameEvent onHealthUpdate;
     [SerializeField] GameEvent onGameOver;
     [SerializeField] GameEvent onSpawnRateUpdate;
+    [SerializeField] GameEvent onRequiredItemChanged;
 
     [SerializeField] bool _gamePause = true;
 
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour
         _elapsedTime = TimeSpan.Zero;
 
         onHealthUpdate.Invoke(new OnHealthUpdateArgs() { value = 1f });
-        
+
         StartGameplay();
     }
 
@@ -108,14 +109,21 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
-        
+
         _elapsedTime += TimeSpan.FromSeconds(Time.deltaTime);
 
         if (_playerHealth <= 0)
         {
             GameOver();
         }
-        
+
         DecayPlayerHealth();
+        ChangeRequiredItem();
+    }
+
+    void ChangeRequiredItem()
+    {
+        _requiredItemType = (Item.ItemType)UnityEngine.Random.Range(0, Enum.GetNames(typeof(Item.ItemType)).Length);
+        onRequiredItemChanged.Invoke(new OnRequiredItemChangedArgs() { type = _requiredItemType });
     }
 }
