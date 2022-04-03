@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 60 BMP
+  m_text: 60 BPM
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 806a6fa9ee4919048a78facfaba51287, type: 2}
   m_sharedMaterial: {fileID: 1934577576410305062, guid: 806a6fa9ee4919048a78facfaba51287, type: 2}
