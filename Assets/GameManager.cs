@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [Header("Events")]
     [SerializeField] GameEvent onHealthUpdate;
     [SerializeField] GameEvent onGameOver;
+    [SerializeField] GameEvent onSpawnRateUpdate;
 
     [SerializeField] bool _gamePause = true;
 
@@ -19,31 +20,34 @@ public class GameManager : MonoBehaviour
     [SerializeField] TimeSpan _elapsedTime;
     [SerializeField] int _correctItems;
     [SerializeField] int _wrongItems;
-    
+    [SerializeField] int _spawnRate;
+
 
     public void OnStartNew()
     {
         _playerHealth = gameSettings.MaxPlayerHealth;
         _elapsedTime = TimeSpan.Zero;
-
+        _gamePause = false;
+        
         onHealthUpdate.Invoke(new OnHealthUpdateArgs() { value = 1f });
+        onSpawnRateUpdate.Invoke(new OnSpawnRateUpdateArgs() { newSpawnRate = _spawnRate });
     }
 
     public void OnResume()
     {
         _gamePause = false;
+        onSpawnRateUpdate.Invoke(new OnSpawnRateUpdateArgs() { newSpawnRate = _spawnRate });
     }
 
     public void OnPause()
     {
         _gamePause = true;
+        onSpawnRateUpdate.Invoke(new OnSpawnRateUpdateArgs() { newSpawnRate = 0f });
     }
 
     public void OnItemCollect(GameEventArgs onItemCollectArgs)
     {
         OnItemCollectArgs args = (OnItemCollectArgs)onItemCollectArgs;
-
-        Debug.Log("Item Collected: " + args.type);
 
         if (args.type == _requiredItemType)
         {
@@ -78,6 +82,8 @@ public class GameManager : MonoBehaviour
     void GameOver()
     {
         _gamePause = true;
+        
+        onSpawnRateUpdate.Invoke(new OnSpawnRateUpdateArgs() { newSpawnRate = 0f });
         onGameOver.Invoke(new OnGameOverArgs()
         {
             timeSurvived = _elapsedTime,

@@ -45,4 +45,12 @@ namespace Assets.Scripts.Utilities
         /// </summary>
         public Item.ItemType type;
     }
+    
+    public class OnSpawnRateUpdateArgs : GameEventArgs
+    {
+        /// <summary>
+        /// The new spawn rate.
+        /// </summary>
+        public float newSpawnRate;
+    }
 }
