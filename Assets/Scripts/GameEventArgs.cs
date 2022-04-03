@@ -51,12 +51,4 @@ namespace Assets.Scripts.Utilities
         /// </summary>
         public float newSpawnRate;
     }
-
-    public class OnRequiredItemChangedArgs : GameEventArgs
-    {
-        /// <summary>
-        /// The new required item.
-        /// </summary>
-        public Item.ItemType type;
-    }
 }

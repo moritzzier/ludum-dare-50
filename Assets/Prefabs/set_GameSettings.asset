@@ -15,28 +15,64 @@ MonoBehaviour:
   MaxPlayerHealth: 10
   HealthDecreaseOnHit: 1
   HealthIncreaseOnHeal: 1
-  PassiveHealthDecrease: 0.1
+  PassiveHealthDecrease: 1
   HeartbeatMap:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 6.0272536
-      outSlope: 6.0272536
+      inSlope: 0.17877094
+      outSlope: 0.17877094
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.114751406
+      outWeight: 0.4435329
     - serializedVersion: 3
-      time: 0.14352748
-      value: 0.5310519
-      inSlope: 1.8607768
-      outSlope: 1.8607768
+      time: 0.02733339
+      value: 0.043192074
+      inSlope: 0.008052386
+      outSlope: 0.008052386
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.1204524
-      outWeight: 0.031563133
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.18686675
+      value: 0.05125205
+      inSlope: 0.34246498
+      outSlope: 0.34246498
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.17280105
+      outWeight: 0.19709578
+    - serializedVersion: 3
+      time: 0.3353857
+      value: 0.5309067
+      inSlope: 0.21926124
+      outSlope: 0.21926124
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.13758896
+    - serializedVersion: 3
+      time: 0.60149914
+      value: 0.7695633
+      inSlope: 0.026858129
+      outSlope: 0.026858129
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.10820401
+    - serializedVersion: 3
+      time: 0.85027635
+      value: 0.8807936
+      inSlope: 1.2768136
+      outSlope: 1.2768136
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
       value: 1

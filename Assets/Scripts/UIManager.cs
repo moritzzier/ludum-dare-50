@@ -5,6 +5,7 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] GameOverMenuManager gameOverMenu;
+    [SerializeField] DisplayRequiredItem displayRequiredItem;
 
     StateMachine stateMachine;
 
@@ -47,6 +48,13 @@ public class UIManager : MonoBehaviour
         stateMachine.ChangeState("MainMenu");
     }
 
+    public void OnRequiredItemChange(GameEventArgs gameEventArgs)
+    {
+        stateMachine.ChangeState("Hud");
+        
+        OnRequiredItemChangeArgs args = (OnRequiredItemChangeArgs)gameEventArgs;
+        displayRequiredItem.DisplayItem(args);
+    }
     public void OnQuit()
     {
         Application.Quit();

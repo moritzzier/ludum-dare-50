@@ -13,8 +13,8 @@ public class DisplayRequiredItem : MonoBehaviour
         _image = GetComponent<Image>();
     }
 
-    public void DisplayItem(GameEventArgs args)
+    public void DisplayItem(OnRequiredItemChangeArgs args)
     {
-        _image.sprite = _itemSprites.ToList().FirstOrDefault(x => x.name == ((OnRequiredItemChangedArgs)args).type.ToString());
+        _image.sprite = _itemSprites.ToList().FirstOrDefault(x => x.name == (args).type.ToString());
     }
 }
