@@ -1,5 +1,7 @@
+using Pixelplacement;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 using static Item;
 
@@ -71,5 +73,50 @@ public static class Extensions
             child = null;
             return false;
         }
+    }
+
+    public static GameObject ChangeState<T>(this StateMachine stateMachine, T type)
+    {
+        return stateMachine.ChangeState(type.ToString());
+    }
+
+    /// <summary>
+    /// Change to the next state, loop to the top if last state is reached.
+    /// </summary>
+    /// <param name="stateMachine"></param>
+    /// <returns></returns>
+    public static GameObject NextLoop(this StateMachine stateMachine)
+    {
+        var prevState = stateMachine.currentState;
+        var next = stateMachine.Next();
+
+        if (prevState == next)
+        {
+            return stateMachine.ChangeState(0);
+        }
+
+        return next;
+    }
+
+    public static string GetDescription<T>(this T enumValue) where T : struct, IConvertible
+    {
+        if (!typeof(T).IsEnum)
+        {
+            return null;
+        }
+
+        var description = enumValue.ToString();
+        var fieldInfo = enumValue.GetType().GetField(enumValue.ToString());
+
+        if (fieldInfo != null)
+        {
+            var attrs = fieldInfo.GetCustomAttributes(typeof(DescriptionAttribute), true);
+            if (attrs != null && attrs.Length > 0)
+            {
+                description = ((DescriptionAttribute)attrs[0]).Description;
+            }
+        }
+
+        return description;
     }
 }

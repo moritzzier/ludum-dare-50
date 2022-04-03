@@ -6,8 +6,6 @@ public class CollectItems : MonoBehaviour
 {
     public ItemType RequiredType;
     [SerializeField] private float _pickupSpeed = 0.1f;
-    bool _isPickingUp = false;
-    Transform _interactor;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
