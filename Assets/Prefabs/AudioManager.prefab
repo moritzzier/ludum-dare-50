@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5517119377222944755}
   - component: {fileID: 518786318082818887}
+  - component: {fileID: 6325034609289657901}
+  - component: {fileID: 6806152796714351338}
   m_Layer: 0
   m_Name: MusicPlayer
   m_TagString: Untagged
@@ -40,11 +42,11 @@ AudioSource:
   m_GameObject: {fileID: 5799552493933936084}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 6421279403094827535, guid: 53dc4353446519546afdd120f84ab1e5, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 280e50c6e9d4df14182b21269e1d178f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 0.5
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -127,6 +129,50 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6325034609289657901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5799552493933936084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e662c0db08305e04fb07a854276b03df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSettings: {fileID: 11400000, guid: b22588c452b6f2243b7067447fb67d42, type: 2}
+  gameSettings: {fileID: 11400000, guid: a870ddffcfad75946b7852c5ddb44c33, type: 2}
+  musicSource: {fileID: 518786318082818887}
+  audioMixerGroup: {fileID: 6421279403094827535, guid: 53dc4353446519546afdd120f84ab1e5, type: 2}
+--- !u!114 &6806152796714351338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5799552493933936084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f39d3a4d0fc100b48a6ea0036e4c4c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: b690fd0017415854a86ebb2ea50c078d, type: 2}
+  _unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6325034609289657901}
+        m_TargetAssemblyTypeName: MusicPlayerManager, Assembly-CSharp
+        m_MethodName: OnHealthUpdate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &9047854329467826670
 GameObject:
   m_ObjectHideFlags: 0
