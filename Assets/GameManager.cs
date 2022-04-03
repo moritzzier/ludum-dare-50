@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
         onHealthUpdate.Invoke(new OnHealthUpdateArgs() { value = 1f });
 
         StartGameplay();
+        ChangeRequiredItem();
     }
 
     public void OnResume()
@@ -127,6 +128,6 @@ public class GameManager : MonoBehaviour
     void ChangeRequiredItem()
     {
         _requiredItemType = (Item.ItemType)UnityEngine.Random.Range(0, Enum.GetNames(typeof(Item.ItemType)).Length);
-        onRequiredItemChanged.Invoke(new OnRequiredItemChangedArgs() { type = _requiredItemType });
+        onRequiredItemChanged.Invoke(new OnRequiredItemChangeArgs() { type = _requiredItemType });
     }
 }

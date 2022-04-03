@@ -532,7 +532,6 @@ GameObject:
   - component: {fileID: 6513473809211645592}
   - component: {fileID: 7493762857372781131}
   - component: {fileID: 8884702721844727251}
-  - component: {fileID: 7294910945607252858}
   m_Layer: 5
   m_Name: RequiredItem
   m_TagString: Untagged
@@ -615,34 +614,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 62612b8fd8e8a9a4c98c77e28898b208, type: 3}
   - {fileID: 21300000, guid: 30a168161c8caf34f86d8a1457df74f0, type: 3}
   - {fileID: 21300000, guid: cb69cf8bbab034f479fa6e896f37f0b1, type: 3}
---- !u!114 &7294910945607252858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1397071214039502042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f39d3a4d0fc100b48a6ea0036e4c4c57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gameEvent: {fileID: 11400000, guid: c041457af74aae041be07f2e52ca8d2a, type: 2}
-  _unityEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8884702721844727251}
-        m_TargetAssemblyTypeName: DisplayRequiredItem, Assembly-CSharp
-        m_MethodName: DisplayItem
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1444687946450011371
 GameObject:
   m_ObjectHideFlags: 0
@@ -1788,6 +1759,7 @@ GameObject:
   - component: {fileID: 7408139061912265285}
   - component: {fileID: 2148190862264535857}
   - component: {fileID: 5876629701943249891}
+  - component: {fileID: 8482618933297240378}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -1940,6 +1912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverMenu: {fileID: 620541807290001695}
+  displayRequiredItem: {fileID: 8884702721844727251}
 --- !u!114 &5283705039304459962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2136,6 +2109,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8482618933297240378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5655695457860294654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f39d3a4d0fc100b48a6ea0036e4c4c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: c041457af74aae041be07f2e52ca8d2a, type: 2}
+  _unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3213480670792192555}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: OnRequiredItemChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5655695457948006246
 GameObject:
   m_ObjectHideFlags: 0
@@ -2318,7 +2319,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5655695458335918887
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3011,7 +3012,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4344642472344719750
 RectTransform:
   m_ObjectHideFlags: 0

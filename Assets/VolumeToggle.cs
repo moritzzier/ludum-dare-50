@@ -19,9 +19,9 @@ public class VolumeToggle : MonoBehaviour
 
     enum Volume
     {
-        [Description("-50")]
+        [Description("-22")]
         Low,
-        [Description("-25")]
+        [Description("-12")]
         Mid,
         [Description("0")]
         Max,
@@ -36,8 +36,8 @@ public class VolumeToggle : MonoBehaviour
 
     private void Start()
     {
-        _stateMachine.ChangeState(VolumeState.VolumeMid);
-        _audioMixerGroup.audioMixer.SetFloat("MasterVolume", -25);
+        _stateMachine.ChangeState(VolumeState.VolumeMax);
+        _audioMixerGroup.audioMixer.SetFloat("MasterVolume", 0);
     }
 
     public void OnToggle()
