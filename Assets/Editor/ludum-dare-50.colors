@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 12323, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: ludum-dare-50
   m_EditorClassIdentifier: 
-  m_Presets: []
+  m_Presets:
+  - m_Name: TextColor
+    m_Color: {r: 0.4156863, g: 0.74509805, b: 0.18823531, a: 1}

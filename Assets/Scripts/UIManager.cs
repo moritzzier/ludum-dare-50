@@ -1,8 +1,11 @@
+using Assets.Scripts.Utilities;
 using Pixelplacement;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    [SerializeField] GameOverMenuManager gameOverMenu;
+
     StateMachine stateMachine;
 
     private void Awake()
@@ -31,9 +34,12 @@ public class UIManager : MonoBehaviour
         stateMachine.ChangeState("Hud");
     }
 
-    public void OnGameOver()
+    public void OnGameOver(GameEventArgs gameEventArgs)
     {
         stateMachine.ChangeState("GameOverMenu");
+        
+        OnGameOverArgs args = (OnGameOverArgs)gameEventArgs;
+        gameOverMenu.OnGameOver(args);
     }
 
     public void OnMainMenu()
