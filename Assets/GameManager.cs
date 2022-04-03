@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameEvent onSpawnRateUpdate;
     [SerializeField] GameEvent onRequiredItemChanged;
     [SerializeField] GameEvent onPlayerDamage;
-    
+
 
     [SerializeField] bool _gamePause = true;
 
@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] int _correctItems;
     [SerializeField] int _wrongItems;
     [SerializeField] float _spawnRate;
-
 
     public void OnStartNew()
     {
@@ -62,6 +61,8 @@ public class GameManager : MonoBehaviour
             DecreasePlayerHealth();
             onPlayerDamage.Invoke();
         }
+
+        ChangeRequiredItem();
     }
 
     void DecreasePlayerHealth()
@@ -121,7 +122,6 @@ public class GameManager : MonoBehaviour
         }
 
         DecayPlayerHealth();
-        ChangeRequiredItem();
     }
 
     void ChangeRequiredItem()

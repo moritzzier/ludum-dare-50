@@ -15,7 +15,6 @@ public class DisplayRequiredItem : MonoBehaviour
 
     public void DisplayItem(GameEventArgs args)
     {
-        if (!_image.IsActive()) _image.gameObject.SetActive(true);
         _image.sprite = _itemSprites.ToList().FirstOrDefault(x => x.name == ((OnRequiredItemChangedArgs)args).type.ToString());
     }
 }

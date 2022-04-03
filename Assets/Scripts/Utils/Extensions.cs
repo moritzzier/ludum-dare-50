@@ -1,5 +1,6 @@
 using Pixelplacement;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
@@ -118,5 +119,10 @@ public static class Extensions
         }
 
         return description;
+    }
+    public static IEnumerator StartAfterDelay(Action action, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        action();
     }
 }
