@@ -12,9 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
   m_Name: AnimatedStreetTile
   m_EditorClassIdentifier: 
-  m_AnimatedSprites: []
-  m_MinSpeed: 1
-  m_MaxSpeed: 1
+  m_AnimatedSprites:
+  - {fileID: 6181537467101850224, guid: 533ca152eedfcf24aa0fc18e68ee7a74, type: 3}
+  - {fileID: -8637101419974821727, guid: 533ca152eedfcf24aa0fc18e68ee7a74, type: 3}
+  - {fileID: -3295007941080977067, guid: 533ca152eedfcf24aa0fc18e68ee7a74, type: 3}
+  - {fileID: -9104815202718064272, guid: 533ca152eedfcf24aa0fc18e68ee7a74, type: 3}
+  - {fileID: 1032607304808881882, guid: 533ca152eedfcf24aa0fc18e68ee7a74, type: 3}
+  - {fileID: 4705243158040593005, guid: 533ca152eedfcf24aa0fc18e68ee7a74, type: 3}
+  - {fileID: 7717933758404339784, guid: 533ca152eedfcf24aa0fc18e68ee7a74, type: 3}
+  - {fileID: 7900725909687825624, guid: 533ca152eedfcf24aa0fc18e68ee7a74, type: 3}
+  - {fileID: 260616223039097676, guid: 533ca152eedfcf24aa0fc18e68ee7a74, type: 3}
+  m_MinSpeed: 10
+  m_MaxSpeed: 10
   m_AnimationStartTime: 0
   m_AnimationStartFrame: 0
   m_TileColliderType: 0
