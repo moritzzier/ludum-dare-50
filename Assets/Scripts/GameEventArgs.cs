@@ -22,7 +22,7 @@ namespace Assets.Scripts.Utilities
         /// The Number of correct Items.
         /// The Number of wrong Items.
         /// </summary>
-        public float score;
+        public int score;
         public TimeSpan timeSurvived;
         public int correctItems;
         public int wrongItems;

@@ -1,4 +1,5 @@
 using Assets.Scripts.Utilities;
+using Pixelplacement;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -14,7 +15,11 @@ public class GameOverMenuManager : MonoBehaviour
     public void OnGameOver(GameEventArgs gameEventArgs)
     {
         OnGameOverArgs args = (OnGameOverArgs)gameEventArgs;
-        scoreCount.text = args.score.ToString();
+        
+        Tween.Value(0, args.score, (int value) =>
+        {
+            scoreCount.text = value.ToString();
+        }, 2f, 1f, Tween.EaseOutStrong);
     }
 
     public void OnRestart()
