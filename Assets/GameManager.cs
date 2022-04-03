@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameEvent onGameOver;
     [SerializeField] GameEvent onSpawnRateUpdate;
     [SerializeField] GameEvent onRequiredItemChanged;
+    [SerializeField] GameEvent onPlayerDamage;
+    
 
     [SerializeField] bool _gamePause = true;
 
@@ -58,6 +60,7 @@ public class GameManager : MonoBehaviour
         {
             _wrongItems++;
             DecreasePlayerHealth();
+            onPlayerDamage.Invoke();
         }
     }
 
