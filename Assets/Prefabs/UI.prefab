@@ -860,7 +860,7 @@ MonoBehaviour:
   _unityEventsFolded: 0
   verbose: 0
   allowReentry: 0
-  returnToDefaultOnDisable: 1
+  returnToDefaultOnDisable: 0
   OnStateExited:
     m_PersistentCalls:
       m_Calls: []

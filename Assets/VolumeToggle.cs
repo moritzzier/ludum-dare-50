@@ -32,11 +32,11 @@ public class VolumeToggle : MonoBehaviour
     private void Awake()
     {
         _stateMachine = GetComponent<StateMachine>();
-        _stateMachine.ChangeState(VolumeState.VolumeMid);
     }
 
     private void Start()
     {
+        _stateMachine.ChangeState(VolumeState.VolumeMid);
         _audioMixerGroup.audioMixer.SetFloat("MasterVolume", -25);
     }
 
