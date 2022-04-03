@@ -1,3 +1,4 @@
+using Assets.Scripts.Scriptable_Objects;
 using Assets.Scripts.Utilities;
 using TMPro;
 using UnityEngine;
@@ -5,19 +6,30 @@ using UnityEngine;
 public class HudManager : MonoBehaviour
 {
     [SerializeField] GameEvent onPause;
+    [SerializeField] GameSettings gameSettings;
     
     [Header("Health")]
     [SerializeField] float maxBPM;
     [SerializeField] TextMeshProUGUI healthText;
-    [SerializeField] AnimationCurve healthToBPM;
+    
+    AnimationCurve _healthToBPM;
+
+    private void Awake()
+    {
+        _healthToBPM = gameSettings.HeartbeatMap;
+    }
     public void OnPause()
     {
         onPause.Invoke();
     }
 
-    public void OnHealthUpdate(OnHealthUpdateArgs onHealthUpdateArgs)
+    public void OnHealthUpdate(GameEventArgs onHealthUpdateArgs)
     {
-        float bpm = Mathf.RoundToInt(healthToBPM.Evaluate(onHealthUpdateArgs.value) * maxBPM);
+        OnHealthUpdateArgs args = (OnHealthUpdateArgs)onHealthUpdateArgs;
+
+        Debug.Log("Health: " + args.value);
+
+        float bpm = Mathf.RoundToInt(_healthToBPM.Evaluate(args.value) * maxBPM);
         healthText.text = $"{bpm} BPM";
     }
 }

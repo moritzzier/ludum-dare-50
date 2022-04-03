@@ -20,29 +20,28 @@ public class GameManager : MonoBehaviour
     [SerializeField] TimeSpan _elapsedTime;
     [SerializeField] int _correctItems;
     [SerializeField] int _wrongItems;
-    [SerializeField] int _spawnRate;
+    [SerializeField] float _spawnRate;
 
 
     public void OnStartNew()
     {
+        _spawnRate = 2f;
         _playerHealth = gameSettings.MaxPlayerHealth;
         _elapsedTime = TimeSpan.Zero;
-        _gamePause = false;
-        
+
         onHealthUpdate.Invoke(new OnHealthUpdateArgs() { value = 1f });
-        onSpawnRateUpdate.Invoke(new OnSpawnRateUpdateArgs() { newSpawnRate = _spawnRate });
+        
+        StartGameplay();
     }
 
     public void OnResume()
     {
-        _gamePause = false;
-        onSpawnRateUpdate.Invoke(new OnSpawnRateUpdateArgs() { newSpawnRate = _spawnRate });
+        StartGameplay();
     }
 
     public void OnPause()
     {
-        _gamePause = true;
-        onSpawnRateUpdate.Invoke(new OnSpawnRateUpdateArgs() { newSpawnRate = 0f });
+        PauseGameplay();
     }
 
     public void OnItemCollect(GameEventArgs onItemCollectArgs)
@@ -75,15 +74,13 @@ public class GameManager : MonoBehaviour
 
     void DecayPlayerHealth()
     {
-        _playerHealth -= gameSettings.PassiveHealthDecrease;
+        _playerHealth -= gameSettings.PassiveHealthDecrease * Time.deltaTime;
         onHealthUpdate.Invoke(new OnHealthUpdateArgs() { value = _playerHealth / gameSettings.MaxPlayerHealth });
     }
 
     void GameOver()
     {
-        _gamePause = true;
-        
-        onSpawnRateUpdate.Invoke(new OnSpawnRateUpdateArgs() { newSpawnRate = 0f });
+        PauseGameplay();
         onGameOver.Invoke(new OnGameOverArgs()
         {
             timeSurvived = _elapsedTime,
@@ -91,6 +88,18 @@ public class GameManager : MonoBehaviour
             wrongItems = _wrongItems,
             score = _correctItems - _wrongItems
         });
+    }
+
+    void PauseGameplay()
+    {
+        _gamePause = true;
+        onSpawnRateUpdate.Invoke(new OnSpawnRateUpdateArgs() { newSpawnRate = 0f });
+    }
+
+    void StartGameplay()
+    {
+        _gamePause = false;
+        onSpawnRateUpdate.Invoke(new OnSpawnRateUpdateArgs() { newSpawnRate = _spawnRate });
     }
 
     void Update()

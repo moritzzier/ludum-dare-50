@@ -6,12 +6,14 @@ public class ItemSpawner : MonoBehaviour
     [SerializeField] GameObject itemPrefab;
     [SerializeField] Collider2D spawnCollider;
 
-    [SerializeField] float _spawnRate = 1f;
+    [SerializeField] float _spawnRate = 0f;
     float _timer = 0;
 
     public void OnSpawnRateUpdate(GameEventArgs gameEventArgs)
     {
         OnSpawnRateUpdateArgs args = (OnSpawnRateUpdateArgs)gameEventArgs;
+        Debug.Log("Update Spawnrate" + args.newSpawnRate);
+
         _spawnRate = args.newSpawnRate;
     }
 

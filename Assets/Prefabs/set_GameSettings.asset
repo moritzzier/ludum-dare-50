@@ -16,3 +16,36 @@ MonoBehaviour:
   HealthDecreaseOnHit: 1
   HealthIncreaseOnHeal: 1
   PassiveHealthDecrease: 0.1
+  HeartbeatMap:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 6.0272536
+      outSlope: 6.0272536
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.114751406
+    - serializedVersion: 3
+      time: 0.14352748
+      value: 0.5310519
+      inSlope: 1.8607768
+      outSlope: 1.8607768
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.1204524
+      outWeight: 0.031563133
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.089333415
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
