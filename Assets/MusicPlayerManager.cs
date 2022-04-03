@@ -22,8 +22,8 @@ public class MusicPlayerManager : MonoBehaviour
 
     public void SetDefaults()
     {
-        SetCutoffFrequency(audioSettings.musicCuffoffMenu);
-        SetMusicPitch(audioSettings.musicSpeedMenu);
+        SetCutoffFrequency(audioSettings.musicMaxCutoffFreq);
+        SetMusicPitch(audioSettings.musicSpeedMax);
     }
 
     public void OnHealthUpdate(GameEventArgs gameEventArgs)
@@ -49,19 +49,21 @@ public class MusicPlayerManager : MonoBehaviour
     {
         float currentCutoff = 0f;
         audioMixerGroup.audioMixer.GetFloat("MusicLowpassFreq", out currentCutoff);
-        
+
         _musicCutoffTween = Tween.Value(currentCutoff, cutoffFrequency, (val) =>
         {
-           audioMixerGroup.audioMixer.SetFloat("MusicLowpassFreq", val);
+            audioMixerGroup.audioMixer.SetFloat("MusicLowpassFreq", val);
         }, 0.5f, 0f);
     }
 
     void SetMusicPitch(float pitch)
     {
         float currentPitch = musicSource.pitch;
-        _musicSpeedTween = Tween.Value(currentPitch, pitch, SetMusicPitch, 0.5f, 0f);
-        
-        musicSource.pitch = pitch;
+     
+        _musicSpeedTween = Tween.Value(currentPitch, pitch, (val) =>
+        {
+            musicSource.pitch = val;
+        }, 0.5f, 0f);
     }
 
 

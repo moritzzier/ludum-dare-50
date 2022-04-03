@@ -14,10 +14,8 @@ namespace Assets.Scripts.Scriptable_Objects
         [Header("Music Audio")]
         [SerializeField] public float musicSpeedMin = 0.5f;
         [SerializeField] public float musicSpeedMax = 1.0f;
-        [SerializeField] public float musicSpeedMenu = 0.75f;
         [SerializeField] public float musicMinCutoffFreq = 0f;
         [SerializeField] public float musicMaxCutoffFreq = 0f;
-        [SerializeField] public float musicCuffoffMenu = 0.75f;
 
     }
 }
