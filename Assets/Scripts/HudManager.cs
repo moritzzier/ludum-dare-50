@@ -27,8 +27,6 @@ public class HudManager : MonoBehaviour
     {
         OnHealthUpdateArgs args = (OnHealthUpdateArgs)onHealthUpdateArgs;
 
-        Debug.Log("Health: " + args.value);
-
         float bpm = Mathf.RoundToInt(_healthToBPM.Evaluate(args.value) * maxBPM);
         healthText.text = $"{bpm} BPM";
     }
