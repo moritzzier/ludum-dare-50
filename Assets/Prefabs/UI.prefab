@@ -609,7 +609,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df5f186b3c4a58c459a4023f83b4d275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemSprites: []
+  _itemSprites:
+  - {fileID: 21300000, guid: 5f0bbcf51694fb748a8a29bedcba0c03, type: 3}
+  - {fileID: 21300000, guid: 213726a6531604c44b0e535069ed57d0, type: 3}
+  - {fileID: 21300000, guid: 62612b8fd8e8a9a4c98c77e28898b208, type: 3}
+  - {fileID: 21300000, guid: 30a168161c8caf34f86d8a1457df74f0, type: 3}
+  - {fileID: 21300000, guid: cb69cf8bbab034f479fa6e896f37f0b1, type: 3}
 --- !u!114 &7294910945607252858
 MonoBehaviour:
   m_ObjectHideFlags: 0
