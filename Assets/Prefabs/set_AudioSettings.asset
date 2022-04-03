@@ -15,5 +15,9 @@ MonoBehaviour:
   masterVolumeMax: 1
   masterVolumeMed: 0.5
   masterVolumeMin: 0
-  musicMinCutoffFreq: 0
-  musicMaxCutoffFreq: 0
+  musicSpeedMin: 0.5
+  musicSpeedMax: 1
+  musicSpeedMenu: 0.75
+  musicMinCutoffFreq: 500
+  musicMaxCutoffFreq: 10000
+  musicCuffoffMenu: 10000
