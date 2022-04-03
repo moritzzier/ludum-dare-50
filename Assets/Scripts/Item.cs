@@ -21,6 +21,7 @@ public class Item : MonoBehaviour
         Bloodbag,
         BandAid,
         Bandage,
+        Pills,
     }
 
     private void OnDrawGizmos()
