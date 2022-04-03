@@ -29,4 +29,20 @@ namespace Assets.Scripts.Utilities
         public int correctItems;
         public int wrongItems;
     }
+
+    public class OnItemCollectArgs : GameEventArgs
+    {
+        /// <summary>
+        /// The Item that was collected.
+        /// </summary>
+        public Item.ItemType type;
+    }
+
+    public class OnRequiredItemChangeArgs : GameEventArgs
+    {
+        /// <summary>
+        /// The Item that is required.
+        /// </summary>
+        public Item.ItemType type;
+    }
 }
