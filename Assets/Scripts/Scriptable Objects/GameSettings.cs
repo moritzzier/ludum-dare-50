@@ -10,7 +10,15 @@ namespace Assets.Scripts.Scriptable_Objects
         public float MaxPlayerHealth;
         public float HealthDecreaseOnHit;
         public float HealthIncreaseOnHeal;
-        public float PassiveHealthDecrease;
+        
+        public float MinPassiveHealthDecrease;
+        public float MaxPassiveHealthDecrease;
+        public AnimationCurve PassiveHealthDecreaseOverTime;
+
+        public float MinSpawnRate;
+        public float MaxSpawnRate;
+        public AnimationCurve SpawnRateOverTime;
+        
 
         [Header("Rythm Settings")]
         public AnimationCurve HeartbeatMap;
