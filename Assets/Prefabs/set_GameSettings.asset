@@ -12,10 +12,115 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b7a574445625e347b44feb1ff727583, type: 3}
   m_Name: set_GameSettings
   m_EditorClassIdentifier: 
-  MaxPlayerHealth: 10
-  HealthDecreaseOnHit: 1
-  HealthIncreaseOnHeal: 1
-  PassiveHealthDecrease: 1
+  MaxPlayerHealth: 15
+  HealthDecreaseOnHit: 5
+  HealthIncreaseOnHeal: 2
+  MinPassiveHealthDecrease: 0.25
+  MaxPassiveHealthDecrease: 1.5
+  PassiveHealthDecreaseOverTime:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: -0.000094652176
+      inSlope: 0.013204224
+      outSlope: 0.013204224
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 15.029426
+      value: 0.19835725
+      inSlope: 0.00025205655
+      outSlope: 0.00025205655
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.08368006
+    - serializedVersion: 3
+      time: 30.016808
+      value: 0.3020141
+      inSlope: 0.0009687471
+      outSlope: 0.0009687471
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.1305087
+    - serializedVersion: 3
+      time: 60.015804
+      value: 0.50386995
+      inSlope: -0.00091569714
+      outSlope: -0.00091569714
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.15390131
+    - serializedVersion: 3
+      time: 90.04205
+      value: 1
+      inSlope: 0.01652321
+      outSlope: 0.01652321
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  MinSpawnRate: 2
+  MaxSpawnRate: 10
+  SpawnRateOverTime:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.000005610287
+      value: 0.001234889
+      inSlope: -0.00000896974
+      outSlope: -0.00000896974
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 20.028269
+      value: 0.0010552406
+      inSlope: 0.00024159873
+      outSlope: 0.00024159873
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.08151657
+    - serializedVersion: 3
+      time: 49.950138
+      value: 0.25002095
+      inSlope: 0.00015282493
+      outSlope: 0.00015282493
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.13174161
+    - serializedVersion: 3
+      time: 59.90972
+      value: 0.49787053
+      inSlope: -0.00023042531
+      outSlope: -0.00023042531
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.18405065
+    - serializedVersion: 3
+      time: 90.081726
+      value: 1
+      inSlope: 0.01664223
+      outSlope: 0.01664223
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   HeartbeatMap:
     serializedVersion: 2
     m_Curve:
@@ -65,22 +170,22 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.10820401
     - serializedVersion: 3
-      time: 0.85027635
-      value: 0.8807936
-      inSlope: 1.2768136
-      outSlope: 1.2768136
+      time: 0.9116192
+      value: 0.87136066
+      inSlope: 0.03725638
+      outSlope: 0.03725638
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.33333334
+      outWeight: 0.25458285
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: 3.1446443
+      outSlope: 3.1446443
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.089333415
+      inWeight: 0.20036976
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

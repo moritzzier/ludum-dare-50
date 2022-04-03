@@ -74,14 +74,23 @@ public class GameManager : MonoBehaviour
 
     void IncreasePlayerHealth()
     {
-        _playerHealth += gameSettings.HealthIncreaseOnHeal;
+        _playerHealth = Mathf.Clamp(_playerHealth + gameSettings.HealthIncreaseOnHeal, 0, gameSettings.MaxPlayerHealth);
         onHealthUpdate.Invoke(new OnHealthUpdateArgs() { value = _playerHealth / gameSettings.MaxPlayerHealth });
     }
 
     void DecayPlayerHealth()
     {
-        _playerHealth -= gameSettings.PassiveHealthDecrease * Time.deltaTime;
+        _playerHealth -= ((gameSettings.PassiveHealthDecreaseOverTime.Evaluate((float)_elapsedTime.TotalSeconds) *
+            (gameSettings.MaxPassiveHealthDecrease - gameSettings.MinPassiveHealthDecrease)) + gameSettings.MinPassiveHealthDecrease)
+            * Time.deltaTime;
         onHealthUpdate.Invoke(new OnHealthUpdateArgs() { value = _playerHealth / gameSettings.MaxPlayerHealth });
+    }
+
+    void UpdateSpawnRate()
+    {
+        _spawnRate = (gameSettings.SpawnRateOverTime.Evaluate((float)_elapsedTime.TotalSeconds) *
+            (gameSettings.MaxSpawnRate - gameSettings.MinSpawnRate)) + gameSettings.MinSpawnRate;
+        onSpawnRateUpdate.Invoke(new OnSpawnRateUpdateArgs() { newSpawnRate = _spawnRate });
     }
 
     void GameOver()
@@ -123,6 +132,7 @@ public class GameManager : MonoBehaviour
         }
 
         DecayPlayerHealth();
+        UpdateSpawnRate();
     }
 
     void ChangeRequiredItem()
