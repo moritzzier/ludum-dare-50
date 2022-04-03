@@ -629,7 +629,7 @@ MonoBehaviour:
       - m_Target: {fileID: 8884702721844727251}
         m_TargetAssemblyTypeName: DisplayRequiredItem, Assembly-CSharp
         m_MethodName: DisplayItem
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
