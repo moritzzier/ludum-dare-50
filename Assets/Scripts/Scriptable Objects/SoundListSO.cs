@@ -11,7 +11,7 @@ public class SoundListSO : ScriptableObject
 
     public AudioClip[] Sounds;
 
-    public AudioClip GetRandom()
+    public AudioClip GetRandomSound()
     {
         return Sounds[random.Next(0, Sounds.Length)];
     }

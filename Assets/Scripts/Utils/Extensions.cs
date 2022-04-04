@@ -125,4 +125,9 @@ public static class Extensions
         yield return new WaitForSeconds(delay);
         action();
     }
+
+    public static void PlayOneShot(this AudioSource audioSource)
+    {
+        audioSource.PlayOneShot(audioSource.clip);
+    }
 }

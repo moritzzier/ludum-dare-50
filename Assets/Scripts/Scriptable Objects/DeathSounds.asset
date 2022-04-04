@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: DeathSounds
   m_EditorClassIdentifier: 
   Name: Death
-  Sounds: []
+  Sounds:
+  - {fileID: 8300000, guid: 0908c4c9ed7b440459e1edd4cb9e5655, type: 3}

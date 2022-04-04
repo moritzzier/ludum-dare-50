@@ -13,4 +13,9 @@ MonoBehaviour:
   m_Name: DamageSounds
   m_EditorClassIdentifier: 
   Name: Damage
-  Sounds: []
+  Sounds:
+  - {fileID: 8300000, guid: 3c86cc00fcc5b9f4aa1945e8af535b2b, type: 3}
+  - {fileID: 8300000, guid: 995b4dae0ee229f4ab27755031d4bafa, type: 3}
+  - {fileID: 8300000, guid: 5b1b37a50b5b3dc4f9cfdced305f4a4a, type: 3}
+  - {fileID: 8300000, guid: 8858e1c9ab5c7524a91788e2df660ae2, type: 3}
+  - {fileID: 8300000, guid: 1e465252659c35a4dbfe80a9a769e7aa, type: 3}

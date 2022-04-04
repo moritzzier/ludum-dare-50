@@ -12,7 +12,6 @@ public class ItemSpawner : MonoBehaviour
     public void OnSpawnRateUpdate(GameEventArgs gameEventArgs)
     {
         OnSpawnRateUpdateArgs args = (OnSpawnRateUpdateArgs)gameEventArgs;
-        Debug.Log("Update Spawnrate" + args.newSpawnRate);
 
         _spawnRate = args.newSpawnRate;
     }

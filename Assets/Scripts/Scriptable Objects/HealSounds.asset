@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: HealSounds
   m_EditorClassIdentifier: 
   Name: Heal
-  Sounds: []
+  Sounds:
+  - {fileID: 8300000, guid: 022cd968d6acf454b8e904e1d44ca867, type: 3}
+  - {fileID: 8300000, guid: c3f22205304d9504a937a15b13b2da82, type: 3}
+  - {fileID: 8300000, guid: 44df2bc6880415242904e5e16a37269e, type: 3}
+  - {fileID: 8300000, guid: 0c95f8957f4985447ad63d608fbb8da3, type: 3}
