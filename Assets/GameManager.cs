@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
         {
             _correctItems++;
             IncreasePlayerHealth();
+            onScoreUpdate.Invoke(new OnScoreUpdateArgs() { newScore = _correctItems });
         }
         else
         {
@@ -64,7 +65,6 @@ public class GameManager : MonoBehaviour
         }
 
         ChangeRequiredItem();
-        onScoreUpdate.Invoke(new OnScoreUpdateArgs() { newScore = _correctItems});
     }
 
     void DecreasePlayerHealth()
