@@ -51,4 +51,12 @@ namespace Assets.Scripts.Utilities
         /// </summary>
         public float newSpawnRate;
     }
+
+    public class OnScoreUpdateArgs : GameEventArgs
+    {
+        /// <summary>
+        /// The new score.
+        /// </summary>
+        public int newScore;
+    }
 }
