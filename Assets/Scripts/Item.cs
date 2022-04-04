@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    [SerializeField] GameManager _gameManager;
-
     public bool IsDragged;
     public ItemType Type;
 
@@ -51,8 +49,6 @@ public class Item : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (_gameManager.GamePaused) return;
-
         _dragPlane = new Plane(_mainCamera.transform.forward, transform.position);
         Ray camRay = _mainCamera.ScreenPointToRay(Input.mousePosition);
         Debug.DrawRay(camRay.origin, camRay.direction * 10, Color.green);
@@ -64,8 +60,6 @@ public class Item : MonoBehaviour
 
     void OnMouseDrag()
     {
-        if (_gameManager.GamePaused) return;
-
         IsDragged = true;
         Ray camRay = _mainCamera.ScreenPointToRay(Input.mousePosition);
         _dragPlane.Raycast(camRay, out var planeDistance);
