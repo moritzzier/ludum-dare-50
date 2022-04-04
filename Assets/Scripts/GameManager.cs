@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
 
     public void OnStartNew()
     {
+        ResetStats();
         _spawnRate = 2f;
         _playerHealth = gameSettings.MaxPlayerHealth;
         _elapsedTime = TimeSpan.Zero;
@@ -106,6 +107,7 @@ public class GameManager : MonoBehaviour
             wrongItems = _wrongItems,
             score = _correctItems
         });
+        ResetStats();
     }
 
     void PauseGameplay()
@@ -118,6 +120,15 @@ public class GameManager : MonoBehaviour
     {
         _gamePause = false;
         onSpawnRateUpdate.Invoke(new OnSpawnRateUpdateArgs() { newSpawnRate = _spawnRate });
+    }
+
+    void ResetStats()
+    {
+        _playerHealth = gameSettings.MaxPlayerHealth;
+        _elapsedTime = TimeSpan.Zero;
+        _correctItems = 0;
+        _wrongItems = 0;
+        _spawnRate = 0;
     }
 
     void Update()
