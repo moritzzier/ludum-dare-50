@@ -43,7 +43,16 @@ public class Item : MonoBehaviour
 
     private void OnEnable()
     {
-        Type = typeof(ItemType).GetRandomType();
+        if (_stateMachine == null)
+            _stateMachine = GetComponent<StateMachine>();
+        if (_collider == null)
+            _collider = GetComponent<PolygonCollider2D>();
+        SetItemType(typeof(ItemType).GetRandomType());
+    }
+
+    public void SetItemType(ItemType type)
+    {
+        Type = type;
         _stateMachine.ChangeState(Type.ToString());
         _collider.SetPolygonColliderToSpriteBounds();
         if (_rb != null) _rb.AddTorque(10f);

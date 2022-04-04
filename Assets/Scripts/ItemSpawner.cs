@@ -33,4 +33,12 @@ public class ItemSpawner : MonoBehaviour
             }
         }
     }
+
+    public void SpawnRequiredItemOnce(GameEventArgs arg)
+    {
+        OnRequiredItemChangeArgs args = (OnRequiredItemChangeArgs)arg;
+        Vector3 spawnPoint = spawnCollider.bounds.RandomPointInBounds();
+        var item = Instantiate(itemPrefab, spawnPoint, Quaternion.identity);
+        item.GetComponent<Item>().SetItemType(args.type);
+    }
 }
