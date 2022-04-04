@@ -41,6 +41,10 @@ public class HudManager : MonoBehaviour
         scoreText.text = $"Score: {args.newScore}";
         Tween.Value(48, 56, (v) => scoreText.fontSize = (int)v, 0.25f, 0f, null);
         Tween.Value(56, 48, (v) => scoreText.fontSize = (int)v, 0.25f, 0.25f, null);
-        
+    }
+
+    public void OnScoreReset()
+    {
+        scoreText.text = "Score: 0";
     }
 }

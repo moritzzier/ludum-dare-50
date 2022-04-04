@@ -2390,6 +2390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverMenu: {fileID: 620541807290001695}
+  hudManager: {fileID: 1928400252}
   displayRequiredItem: {fileID: 8884702721844727251}
 --- !u!114 &5283705039304459962
 MonoBehaviour:
@@ -2799,7 +2800,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5655695458335918887
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3656,7 +3657,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4344642472344719750
 RectTransform:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] GameOverMenuManager gameOverMenu;
+    [SerializeField] HudManager hudManager;
     [SerializeField] DisplayRequiredItem displayRequiredItem;
 
     StateMachine stateMachine;
@@ -18,6 +19,7 @@ public class UIManager : MonoBehaviour
     public void OnPlay()
     {
         stateMachine.ChangeState("Hud");
+        hudManager.OnScoreReset();
     }
 
     public void OnPause()
@@ -33,6 +35,7 @@ public class UIManager : MonoBehaviour
     public void OnRestart()
     {
         stateMachine.ChangeState("Hud");
+        hudManager.OnScoreReset();
     }
 
     public void OnGameOver(GameEventArgs gameEventArgs)
