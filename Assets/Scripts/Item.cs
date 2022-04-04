@@ -1,10 +1,9 @@
+using Assets.Scripts.Utilities;
 using Pixelplacement;
 using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    [SerializeField] GameManager _gameManager;
-
     public bool IsDragged;
     public ItemType Type;
 
@@ -15,6 +14,7 @@ public class Item : MonoBehaviour
     Plane _dragPlane;
     Camera _mainCamera;
     RectTransform _rectTransform;
+    [SerializeField] bool _isDraggingAllowed = true;
 
     public enum ItemType
     {
@@ -51,7 +51,7 @@ public class Item : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (_gameManager.GamePaused) return;
+        if (!_isDraggingAllowed) return;
 
         _dragPlane = new Plane(_mainCamera.transform.forward, transform.position);
         Ray camRay = _mainCamera.ScreenPointToRay(Input.mousePosition);
@@ -64,7 +64,7 @@ public class Item : MonoBehaviour
 
     void OnMouseDrag()
     {
-        if (_gameManager.GamePaused) return;
+        if (!_isDraggingAllowed) return;
 
         IsDragged = true;
         Ray camRay = _mainCamera.ScreenPointToRay(Input.mousePosition);
@@ -77,5 +77,15 @@ public class Item : MonoBehaviour
     private void OnMouseUp()
     {
         IsDragged = false;
+    }
+
+    public void DraggingAllowed(GameEventArgs args)
+    {
+        _isDraggingAllowed = true;
+    }
+
+    public void DraggingDisallowed(GameEventArgs args)
+    {
+        _isDraggingAllowed = false;
     }
 }
