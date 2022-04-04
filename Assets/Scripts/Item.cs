@@ -41,16 +41,17 @@ public class Item : MonoBehaviour
         _rectTransform = GetComponent<RectTransform>();
     }
 
-    private void OnEnable()
+    public void Init()
     {
-        if (_stateMachine == null)
-            _stateMachine = GetComponent<StateMachine>();
-        if (_collider == null)
-            _collider = GetComponent<PolygonCollider2D>();
         SetItemType(typeof(ItemType).GetRandomType());
     }
 
-    public void SetItemType(ItemType type)
+    public void Init(ItemType type)
+    {
+        SetItemType(type);
+    }
+
+    private void SetItemType(ItemType type)
     {
         Type = type;
         _stateMachine.ChangeState(Type.ToString());

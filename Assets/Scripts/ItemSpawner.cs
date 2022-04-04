@@ -19,7 +19,9 @@ public class ItemSpawner : MonoBehaviour
     void SpawnItem()
     {
         Vector3 spawnPoint = spawnCollider.bounds.RandomPointInBounds();
-        _ = Instantiate(itemPrefab, spawnPoint, Quaternion.identity);
+        var item = Instantiate(itemPrefab, spawnPoint, Quaternion.identity);
+        item.GetComponent<Item>().Init();
+
     }
     void Update()
     {
@@ -39,6 +41,6 @@ public class ItemSpawner : MonoBehaviour
         OnRequiredItemChangeArgs args = (OnRequiredItemChangeArgs)arg;
         Vector3 spawnPoint = spawnCollider.bounds.RandomPointInBounds();
         var item = Instantiate(itemPrefab, spawnPoint, Quaternion.identity);
-        item.GetComponent<Item>().SetItemType(args.type);
+        item.GetComponent<Item>().Init(args.type);
     }
 }
