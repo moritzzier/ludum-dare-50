@@ -88,6 +88,8 @@ public class GameManager : MonoBehaviour
 
     void UpdateSpawnRate()
     {
+        if (_gamePause) return;
+
         _spawnRate = (gameSettings.SpawnRateOverTime.Evaluate((float)_elapsedTime.TotalSeconds) *
             (gameSettings.MaxSpawnRate - gameSettings.MinSpawnRate)) + gameSettings.MinSpawnRate;
         onSpawnRateUpdate.Invoke(new OnSpawnRateUpdateArgs() { newSpawnRate = _spawnRate });

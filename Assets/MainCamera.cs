@@ -19,4 +19,9 @@ public class MainCamera : MonoBehaviour
         float curveValue = gameSettings.HeartbeatMap.Evaluate(args.value);
         _colorGrading.saturation.value = -100 + curveValue * 100;
     }
+
+    public void Reset()
+    {
+        _colorGrading.saturation.value = 0;
+    }
 }

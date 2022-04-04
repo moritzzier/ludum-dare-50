@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 290337314584277788}
   - component: {fileID: 56039568246115039}
   - component: {fileID: 9108300700322434717}
+  - component: {fileID: 1605308153757308172}
   m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -216,6 +217,34 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: MainCamera, Assembly-CSharp
         m_MethodName: OnHealthUpdate
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1605308153757308172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7652762382796088038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f39d3a4d0fc100b48a6ea0036e4c4c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: 22547c60e6eb5424480e28667250eca1, type: 2}
+  _unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 56039568246115039}
+        m_TargetAssemblyTypeName: MainCamera, Assembly-CSharp
+        m_MethodName: Reset
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
