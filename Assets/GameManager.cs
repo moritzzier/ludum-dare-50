@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameEvent onSpawnRateUpdate;
     [SerializeField] GameEvent onRequiredItemChanged;
     [SerializeField] GameEvent onPlayerDamage;
-
+    [SerializeField] GameEvent onScoreUpdate;
 
     [SerializeField] bool _gamePause = true;
 
@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
         {
             _correctItems++;
             IncreasePlayerHealth();
+            onScoreUpdate.Invoke(new OnScoreUpdateArgs() { newScore = _correctItems });
         }
         else
         {
@@ -103,7 +104,7 @@ public class GameManager : MonoBehaviour
             timeSurvived = _elapsedTime,
             correctItems = _correctItems,
             wrongItems = _wrongItems,
-            score = _correctItems - _wrongItems
+            score = _correctItems
         });
     }
 
